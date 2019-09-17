@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import * as EmailValidator from "email-validator";
+import "../css/Main.css";
 
 function Invitations(props) {
+  const initiateInvitation = () => {
+    alert("Invitation Action");
+  };
   const [emailAddress, setEmailAddress] = useState("");
   let status;
   if (!emailAddress) {
@@ -27,14 +31,14 @@ function Invitations(props) {
     };
   }
   return (
-    <div className="row d-flex justify-content-center my-1">
+    <div className="row d-flex justify-content-center  mid-level">
       <div className="col-md-6">
         <div className="alert alert-primary">
           <h3>Invitations</h3>
         </div>
         <div className={`alert alert-${status.className}`}>{status.msg}</div>
         <input className="form-control my-2" type="email" onChange={e => setEmailAddress(e.target.value)} />
-        <button className={`btn btn-${status.className} form-control`} disabled={status.disabled}>
+        <button className={`btn btn-${status.className} form-control`} disabled={status.disabled} onClick={() => initiateInvitation()}>
           Enter
         </button>
       </div>
